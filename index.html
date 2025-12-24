@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You ❤️</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #0a1128;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#envelope {
+    font-size: 90px;
+    cursor: pointer;
+    animation: float 2.5s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-15px); }
+}
+
+#card {
+    display: none;
+    text-align: center;
+    background: rgba(255,255,255,0.07);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+    animation: glow 2s infinite alternate;
+    color: white;
+    max-width: 80%;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #ff4da6; }
+    to { box-shadow: 0 0 25px #ff80bf; }
+}
+
+h1 {
+    font-size: 40px;
+    margin: 10px 0;
+    animation: textFloat 3s infinite ease-in-out;
+}
+
+@keyframes textFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    font-size: 22px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+</style>
+</head>
+<body>
+
+<div id="envelope" onclick="openCard()">✉️</div>
+
+<div id="card">
+    <h1>🎄 Merry Christmas Beautiful</h1>
+    <p>
+       I hope your day is filled with joy, laughter, and all the things that make you smile.<br>
+       You make every day feel warmer and a little more special.<br>
+       I'm really grateful for you and I love the way you make life feel a little sweeter.<br>
+       Hope your Christmas is as amazing as you are. ❤️
+    </p>
+    <p><strong>You're special to me.</strong></p>
+    <p>– Ryan</p>
+</div>
+
+<script>
+function openCard() {
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("card").style.display = "block";
+}
+
+// Snow effect
+for (let i = 0; i < 25; i++) {
+    let snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.innerHTML = "❄️";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
